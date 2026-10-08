@@ -3,19 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>西瓜AI工作台</title>
+    <title>西瓜AI - 抖音爆款视频工作台</title>
+    <meta name="description" content="西瓜AI 是抖音爆款视频自动化工作台，帮助商家和转行者生成脚本、标题和短视频内容结构。" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="page-shell">
       <header class="topbar">
-        <div class="brand">🍉 西瓜AI</div>
-        <div class="badge">抖音爆款视频工作台</div>
+        <div class="brand-wrap">
+          <div class="brand-icon">🍉</div>
+          <div>
+            <div class="brand-name">西瓜AI</div>
+            <div class="brand-sub">抖音爆款视频工作台</div>
+          </div>
+        </div>
+        <div class="top-actions">
+          <span class="badge badge-gold">AI短视频生产</span>
+          <span class="badge badge-soft">私有化部署</span>
+        </div>
       </header>
 
-      <main class="layout">
-        <section class="panel form-panel">
-          <h1>生成爆款短视频脚本</h1>
+      <main class="hero">
+        <section class="hero-copy">
+          <div class="eyebrow">给商家和转行者的 AI 内容工具</div>
+          <h1>让普通人也能快速生成爆款短视频脚本和内容结构</h1>
+          <p>
+            西瓜AI帮助用户输入行业、主题和目标用户，自动生成可执行的短视频脚本、标题模板和内容方向，降低内容创业门槛。
+          </p>
+
+          <div class="hero-actions">
+            <a href="#generator" class="primary-btn">立即试用</a>
+            <a href="#knowledge" class="ghost-btn">查看知识库</a>
+          </div>
+
+          <ul class="feature-list">
+            <li>自动生成脚本结构</li>
+            <li>抖音平台优先适配</li>
+            <li>知识库+模板驱动</li>
+            <li>适合私有化部署交付</li>
+          </ul>
+        </section>
+
+        <section class="hero-card">
+          <div class="mini-card">
+            <div class="mini-card-title">爆款内容生成</div>
+            <div class="mini-card-score">45s</div>
+            <div class="mini-card-text">脚本生成速度</div>
+          </div>
+          <div class="mini-card mini-card-alt">
+            <div class="mini-card-title">顾客价值</div>
+            <div class="mini-card-score">低门槛</div>
+            <div class="mini-card-text">普通人也能用</div>
+          </div>
+          <div class="mini-card mini-card-note">
+            <div class="mini-card-title">核心卖点</div>
+            <div class="mini-card-text">
+              自动化短视频内容生产工作台，适合商家和创业者快速启动内容业务。
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number">3步</div>
+          <div class="stat-label">输入主题 / 生成脚本 / 输出内容结构</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1平台</div>
+          <div class="stat-label">抖音优先，后续扩展其他短视频平台</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">0门槛</div>
+          <div class="stat-label">无需剪辑和运营经验即可开始</div>
+        </div>
+      </section>
+
+      <section id="generator" class="workspace-grid">
+        <div class="panel form-panel">
+          <div class="panel-title">生成短视频任务</div>
           <form id="taskForm">
             <label>
               主题
@@ -44,17 +110,40 @@
 
             <button type="submit">生成任务</button>
           </form>
-        </section>
+        </div>
 
-        <section class="panel result-panel">
-          <h2>任务结果</h2>
+        <div class="panel result-panel">
+          <div class="panel-title">任务结果</div>
           <div id="status" class="status-box">等待生成...</div>
           <div id="result" class="result-box">
             <h3>标题</h3>
-            <p>用 AI 给您的主题生成爆款标题与脚本结构</p>
+            <p>输入主题后，系统将生成标题、脚本结构和视频方向建议。</p>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      <section id="knowledge" class="knowledge-wrap">
+        <div class="panel">
+          <div class="panel-title">知识库模块</div>
+          <div class="knowledge-grid">
+            <div class="knowledge-card">
+              <div class="k-tag">算法</div>
+              <h4>抖音推荐机制</h4>
+              <p>了解前3秒钩子，停留时长与互动率的关键逻辑。</p>
+            </div>
+            <div class="knowledge-card">
+              <div class="k-tag">标题</div>
+              <h4>爆款标题模板</h4>
+              <p>痛点型、案例型、教程型标题模板可直接复用。</p>
+            </div>
+            <div class="knowledge-card">
+              <div class="k-tag">脚本</div>
+              <h4>商家增长脚本</h4>
+              <p>适合商家老板、转行者和自媒体入门者的脚本模板。</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <script src="app.js"></script>

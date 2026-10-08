@@ -9,14 +9,24 @@ async function createTask(payload) {
     body: JSON.stringify(payload),
   });
 
+  if (!response.ok) {
+    throw new Error('请求失败');
+  }
+
   return response.json();
 }
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
+  const topic = document.getElementById('topic').value.trim();
+  if (!topic) {
+    statusBox.textContent = '请输入主题';
+    return;
+  }
+
   const payload = {
-    topic: document.getElementById('topic').value,
+    topic,
     audience: document.getElementById('audience').value,
     style: document.getElementById('style').value,
     duration: Number(document.getElementById('duration').value),
@@ -40,6 +50,9 @@ form.addEventListener('submit', async (event) => {
     `;
   } catch (err) {
     statusBox.textContent = '生成失败';
-    resultBox.innerHTML = `<p>请确认后端已启动，并检查接口是否可用。</p>`;
+    resultBox.innerHTML = `
+      <p>请确认后端已启动，并检查接口是否可用。</p>
+      <p>访问：http://localhost:8000/docs</p>
+    `;
   }
 });
