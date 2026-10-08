@@ -1,290 +1,359 @@
-# 西瓜AI 完整解决方案
+# 西瓜AI 企业级完整产品
 
-## 产品定义
+一站式短视频内容生产工作台，集成AI脚本生成、配音、配图、自动剪辑、多平台发布、数据分析。
 
-**西瓜AI** 是一套完整的**自媒体AI工作台配置方案**，帮助商家老板、转行者和创业者在豆包/WorkBuddy 上快速搭建 AI 驱动的短视频内容生产系统，无需技术基础。
+## 🎯 核心功能
 
-## 核心模式
+### 1. 内容生成
+- ✅ AI智能脚本生成（基于豆包/Qwen/GPT）
+- ✅ 爆款标题建议（基于热榜分析）
+- ✅ 自动口播文案
+- ✅ 100+行业模板库
+- ✅ 热点实时监测
+
+### 2. 视频制作
+- ✅ TTS自动配音（支持多音色）
+- ✅ AI生成配图（Stable Diffusion）
+- ✅ 自动字幕生成（Whisper）
+- ✅ 智能剪辑（关键帧提取）
+- ✅ 动态转场效果
+
+### 3. 多平台发布
+- ✅ 抖音自动发布
+- ✅ 小红书同步
+- ✅ 快手上传
+- ✅ B站/微博支持
+- ✅ 定时/批量发布
+
+### 4. 数据分析
+- ✅ 实时播放数据
+- ✅ 互动率分析
+- ✅ 爆款预测
+- ✅ 对标分析
+- ✅ ROI追踪
+
+### 5. 团队协作
+- ✅ 多用户管理
+- ✅ 角色权限控制
+- ✅ 团队内容库共享
+- ✅ 审核流程
+- ✅ 内容版本管理
+
+### 6. 知识库
+- ✅ 自媒体运营指南
+- ✅ 行业最佳实践
+- ✅ 案例库
+- ✅ 爆款选题库
+- ✅ 平台算法说明
+
+---
+
+## 📦 技术栈
+
+### 后端
+- **框架**: FastAPI + Python 3.11+
+- **数据库**: PostgreSQL + Redis
+- **消息队列**: Celery + RabbitMQ
+- **存储**: MinIO / AWS S3
+- **AI服务**: 
+  - 大模型API (豆包/Qwen/GPT)
+  - TTS服务 (Edge-TTS/阿里云)
+  - 图片生成 (Stable Diffusion)
+  - 视频处理 (FFmpeg)
+  - 字幕识别 (Whisper)
+
+### 前端
+- **框架**: React 18 + TypeScript
+- **UI库**: Ant Design 5
+- **状态管理**: Zustand
+- **编辑器**: Draft.js / Slate
+- **图表**: ECharts
+- **视频播放**: HLS.js
+
+### 基础设施
+- **容器化**: Docker + Docker Compose
+- **编排**: Kubernetes Ready
+- **监控**: Prometheus + Grafana
+- **日志**: ELK Stack
+- **CI/CD**: GitHub Actions
+
+---
+
+## 🏗️ 项目结构
 
 ```
-客户订阅豆包/WorkBuddy → 我们提供配置方案
-         ↓
-   客户自己配置工作台
-         ↓
-   我们远程指导 + 培训
-         ↓
-   客户开始生成爆款视频
-```
-
-## 您的销售方案
-
-### 产品组成
-
-**三位一体交付：**
-1. **配置包** ¥
-   - 豆包配置手册（完整图解）
-   - WorkBuddy 配置手册（完整图解）
-   - Prompt 模板库（100+行业模板）
-   - 工作流配置文件（可直接复制粘贴）
-
-2. **知识库电子书** ¥
-   - 自媒体运营指南
-   - 爆款脚本模板
-   - 选题库 + 热点分析
-   - 平台算法说明
-   - 行业案例分析
-
-3. **培训课程** ¥
-   - 5节视频课程（快速启动）
-   - 直播答疑（Q&A会议）
-   - 客户群内容运营
-   - 定期更新和优化
-
-### 销售价格参考
-
-根据您前面说的定价逻辑：
-- **个人创作者**：¥5k-8k（包含配置包+电子书+1次答疑）
-- **小团队**（3-5人）：¥15k-25k（+专属群+月度答疑）
-- **MCN/工作室**（5+人）：¥30k-50k+（+白标定制+永久支持）
-
----
-
-## 项目结构
-
-```
-xigua-ai-workstation/
-├── README.md （本文件）
-├── SALES_PITCH.md （销售话术）
-├── QUICK_START.md （快速启动指南）
+xigua-ai-enterprise/
+├── backend/
+│   ├── app/
+│   │   ├── main.py                    # 应用入口
+│   │   ├── config.py                  # 配置管理
+│   │   ├── models/                    # 数据模型
+│   │   │   ├── user.py
+│   │   │   ├── content.py
+│   │   │   ├── task.py
+│   │   │   └── analytics.py
+│   │   ├── schemas/                   # 请求/响应模型
+│   │   ├── routers/                   # API路由
+│   │   │   ├── auth.py
+│   │   │   ├── content.py
+│   │   │   ├── tasks.py
+│   │   │   ├── platforms.py
+│   │   │   ├── analytics.py
+│   │   │   └── knowledge.py
+│   │   ├── services/                  # 业务逻辑
+│   │   │   ├── ai_service.py          # AI生成
+│   │   │   ├── video_processor.py     # 视频处理
+│   │   │   ├── platform_service.py    # 平台发布
+│   │   │   ├── hot_topics.py          # 热点监测
+│   │   │   └── analytics_service.py   # 数据分析
+│   │   ├── utils/                     # 工具函数
+│   │   ├── middleware/                # 中间件
+│   │   └── dependencies.py            # 依赖注入
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   └── alembic/                       # 数据库迁移
 │
-├── config/ （配置方案）
-│   ├── doubapackage/ （豆包配置）
-│   │   ├── README.md
-│   │   ├── setup_guide.md （详细图解）
-│   │   ├── prompts/ （100+提示词）
-│   │   └── workflows/ （工作流配置）
-│   │
-│   └── workbuddy/ （WorkBuddy配置）
-│       ├── README.md
-│       ├── setup_guide.md （详细图解）
-│       ├── prompts/ （100+提示词）
-│       └── workflows/ （工作流配置）
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── pages/
+│   │   │   ├── Login.tsx
+│   │   │   ├── Dashboard.tsx
+│   │   │   ├── ContentGenerator.tsx
+│   │   │   ├── VideoEditor.tsx
+│   │   │   ├── Publishing.tsx
+│   │   │   ├── Analytics.tsx
+│   │   │   ├── KnowledgeBase.tsx
+│   │   │   └── TeamManagement.tsx
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   ├── store/
+│   │   ├── styles/
+│   │   └── App.tsx
+│   ├── package.json
+│   └── Dockerfile
 │
-├── knowledge_base/ （知识库电子书）
-│   ├── 01_douyin_algorithm.md （抖音算法）
-│   ├── 02_script_templates.md （脚本模板库）
-│   ├── 03_topic_library.md （选题库）
-│   ├── 04_industry_guides/ （行业指南）
-│   │   ├── ecommerce.md （电商）
-│   │   ├── coaching.md （教培）
-│   │   ├── beauty.md （美妆）
-│   │   ├── food.md （美食）
-│   │   └── ... （其他行业）
-│   └── 05_case_studies.md （案例库）
+├── services/
+│   ├── ai-worker/                     # AI处理服务
+│   │   ├── script_generator.py
+│   │   ├── title_suggester.py
+│   │   └── image_generator.py
+│   ├── video-worker/                  # 视频处理服务
+│   │   ├── ffmpeg_processor.py
+│   │   ├── tts_engine.py
+│   │   └── video_merger.py
+│   └── publisher-worker/              # 发布服务
+│       └── platform_uploader.py
 │
-├── training/ （培训课程）
-│   ├── README.md （课程介绍）
-│   ├── 01_setup_basics.md （配置基础 - 30分钟）
-│   ├── 02_prompt_mastery.md （提示词掌握 - 45分钟）
-│   ├── 03_workflow_design.md （工作流设计 - 60分钟）
-│   ├── 04_content_strategy.md （内容策略 - 45分钟）
-│   ├── 05_scaling_tips.md （扩大规模 - 30分钟）
-│   └── qa_template.md （答疑模板）
+├── knowledge_base/
+│   ├── templates/
+│   │   ├── scripts/                   # 脚本模板
+│   │   ├── titles/                    # 标题模板
+│   │   └── industries/                # 行业指南
+│   ├── guides/
+│   │   ├── douyin_algorithm.md
+│   │   ├── xiaohongshu_guide.md
+│   │   ├── kuaishou_guide.md
+│   │   └── bilibili_guide.md
+│   └── cases/                         # 案例库
 │
-├── templates/ （可直接使用的模板）
-│   ├── video_scripts/ （短视频脚本模板）
-│   ├── prompts.json （JSON格式提示词库）
-│   ├── workflow_configs/ （工作流配置文件）
-│   └── industry_packs/ （行业套装模板）
-│
-├── tools/ （辅助工具）
-│   ├── prompt_generator.md （提示词生成器使用说明）
-│   ├── content_calendar.xlsx （内容日历模板）
-│   └── analytics_template.md （数据分析模板）
-│
-└── support/ （客户支持）
-    ├── FAQ.md （常见问题）
-    ├── troubleshooting.md （问题排查）
-    └── community_guidelines.md （社群规则）
+├── docker-compose.yml
+├── docker-compose.prod.yml
+├── .env.example
+├── README.md
+├── DEPLOYMENT.md
+└── ARCHITECTURE.md
 ```
 
 ---
 
-## 配置方案详细说明
+## 🚀 快速开始
 
-### 豆包配置方案
+### 本地开发
 
-**目标**：客户在豆包上创建一个"西瓜AI自媒体工作台" Bot
+```bash
+# 1. 克隆项目
+git clone https://github.com/yourusername/xigua-ai-enterprise.git
+cd xigua-ai-enterprise
 
-**关键步骤**：
-1. 注册豆包账号
-2. 新建 Bot → 配置提示词
-3. 导入 100+ 行业模板
-4. 设置工作流（选题 → 脚本 → 标题 → 发布建议）
-5. 调试和优化
+# 2. 配置环境
+cp .env.example .env
+# 编辑 .env 填入 API 密钥
 
-### WorkBuddy配置方案
+# 3. 启动开发环境
+docker-compose up -d
 
-**目标**：客户在 WorkBuddy 上创建自媒体工作流
+# 4. 初始化数据库
+docker exec xigua-backend alembic upgrade head
 
-**关键步骤**：
-1. 注册 WorkBuddy 账号
-2. 创建新的 Bot/Agent
-3. 导入西瓜AI 的工作流配置
-4. 连接知识库
-5. 设置发布接口（对接抖音/小红书等）
+# 5. 访问应用
+# 前端: http://localhost:3000
+# 后端API: http://localhost:8000
+# API文档: http://localhost:8000/docs
+```
 
----
+### 生产部署
 
-## 知识库内容规划
+```bash
+# 使用生产配置
+docker-compose -f docker-compose.prod.yml up -d
 
-### 核心内容模块
-
-**①自媒体运营基础** （客户必读）
-- 抖音推荐机制
-- 内容六要素
-- 爆款视频特征分析
-- 新账号冷启动方法
-
-**②脚本模板库** （客户直接可用）
-- 痛点型脚本（为什么别人成功你没成功）
-- 案例型脚本（真实案例拆解）
-- 教程型脚本（3步解决问题）
-- 故事型脚本（用故事驱动转化）
-- 商业型脚本（直接带货）
-
-**③选题库** （按行业分类）
-- 电商行业 50+ 爆款选题
-- 教育培训 50+ 爆款选题
-- 美妆护肤 50+ 爆款选题
-- 健身减肥 50+ 爆款选题
-- 餐饮美食 50+ 爆款选题
-- 生活技能 50+ 爆款选题
-
-**④行业指南** （按客户类型）
-- 商家老板专项：如何用短视频提升转化
-- 转行者专项：从零开始做自媒体
-- 团队运营专项：如何建立内容矩阵
-
-**⑤案例库** （实操参考）
-- 真实客户案例（匿名）
-- 从0到10万粉丝的过程
-- 最容易踩的坑和解决方案
+# 自动化脚本部署
+chmod +x scripts/deploy.sh
+./scripts/deploy.sh prod
+```
 
 ---
 
-## 培训课程设计
+## 📊 核心API
 
-### 5节核心课程 （共4小时）
+### 内容生成
+```bash
+POST /api/v1/content/generate-script
+POST /api/v1/content/generate-title
+POST /api/v1/content/suggest-topics
+```
 
-**课程一：配置基础** （30分钟）
-- 豆包 vs WorkBuddy 选择
-- 5分钟快速注册
-- 配置第一个 Bot
-- 常见问题排查
+### 视频处理
+```bash
+POST /api/v1/video/generate-tts
+POST /api/v1/video/process
+POST /api/v1/video/merge
+```
 
-**课程二：提示词掌握** （45分钟）
-- 什么是好提示词
-- 如何写出高质量提示词
-- 100+ 模板库讲解
-- 实操：改写一个提示词
+### 平台发布
+```bash
+POST /api/v1/platform/publish
+GET /api/v1/platform/status/{task_id}
+GET /api/v1/platform/analytics/{video_id}
+```
 
-**课程三：工作流设计** （60分钟）
-- 西瓜AI 标准工作流
-- 选题 → 脚本 → 标题 → 发布的全流程
-- 如何自定义工作流
-- 演示：生成一条完整短视频方案
-
-**课程四：内容策略** （45分钟）
-- 如何选择正确的行业方向
-- 账号定位和受众分析
-- 内容矩阵搭建
-- 数据分析和优化
-
-**课程五：扩大规模** （30分钟）
-- 从个人到团队的扩展
-- 多账号运营管理
-- 工作流自动化
-- 持续优化和迭代
+### 团队管理
+```bash
+POST /api/v1/team/create
+POST /api/v1/team/add-member
+GET /api/v1/team/members
+```
 
 ---
 
-## 客户交付清单
+## 🔐 安全特性
 
-客户付款后，您需要给他交付：
-
-### 第一阶段：配置包 （第1天）
-- ✅ 豆包配置手册 PDF（50页+）
-- ✅ WorkBuddy 配置手册 PDF（50页+）
-- ✅ 行业模板库（JSON格式）
-- ✅ 工作流配置文件（可复制粘贴）
-
-### 第二阶段：知识库 （第1-3天）
-- ✅ 电子书 PDF（200页+）
-- ✅ 行业指南（可打印版本）
-- ✅ 选题库（Google Sheets 模板）
-- ✅ 案例库（精选 20+ 案例）
-
-### 第三阶段：培训课程 （第1周）
-- ✅ 5节视频课程（含字幕）
-- ✅ 课程讲义 PDF
-- ✅ 实操练习题和答案
-- ✅ 直播答疑时间表
-
-### 第四阶段：持续支持 （第1个月）
-- ✅ 专属客户群
-- ✅ 周一答疑时间
-- ✅ 月度优化建议
-- ✅ 模板库定期更新
+- ✅ JWT身份认证
+- ✅ 角色权限控制 (RBAC)
+- ✅ API速率限制
+- ✅ 请求加密
+- ✅ 审计日志
+- ✅ 数据加密存储
+- ✅ HTTPS强制
+- ✅ SQL注入防护
+- ✅ XSS防护
+- ✅ CSRF保护
 
 ---
 
-## 销售话术（核心）
+## 📈 扩展性
 
-> "西瓜AI不是卖工具，而是卖**完整的自媒体赚钱方案**。
->
-> 您不需要懂剪辑、不需要懂运营、不需要懂代码。
-> 我们给您提供：
-> - 一套**现成的工作台配置**（在豆包/WorkBuddy上）
-> - 一本**完整的自媒体运营手册**（包含100+脚本模板）
-> - **5节视频课程**（教您怎么用）
-> - **持续的答疑支持**（确保您成功）
->
-> 您自己就能在豆包上搭建工作台，快速生成短视频脚本。
-> 从主题输入 → 脚本输出只需要 2 分钟。
->
-> 这套方案已经帮助 100+ 商家和转行者做出了爆款视频。
-> 您可以先看看案例，再决定是否加入。"
+### 水平扩展
+- 多实例负载均衡
+- 数据库主从复制
+- Redis集群
+- 消息队列集群
+
+### 功能扩展
+- 插件系统支持
+- 自定义工作流
+- 第三方集成
+- 模型切换能力
 
 ---
 
-## 下一步行动
+## 🔧 配置示例
 
-1. **确认客户类型**：您的目标客户是商家、转行者，还是两者都要？
-2. **确认价格**：您定价是 ¥5k-50k，需要调整吗？
-3. **确认交付方式**：是通过 PDF + 视频 + 社群，还是有其他渠道？
-4. **确认支持方式**：是微信群 + 直播答疑，还是其他方式？
-5. **确认时间表**：您什么时候要上线销售？
+### 豆包 API 配置
+```env
+DOUBAO_API_KEY=your_key_here
+DOUBAO_MODEL=doubao-pro-32k
+```
+
+### TTS 配置
+```env
+TTS_PROVIDER=edge-tts  # edge-tts, aliyun, azure
+TTS_VOICE=zh-CN-YunyangNeural
+```
+
+### 视频处理
+```env
+FFMPEG_PATH=/usr/bin/ffmpeg
+VIDEO_OUTPUT_FORMAT=mp4
+VIDEO_QUALITY=1080p
+```
+
+### 平台密钥
+```env
+DOUYIN_CLIENT_ID=xxx
+DOUYIN_CLIENT_SECRET=xxx
+XIAOHONGSHU_TOKEN=xxx
+```
 
 ---
 
-## 版权和使用说明
+## 📝 开发指南
 
-本方案用于私有化销售和客户培训。您有完全的权利：
-- 修改方案内容
-- 添加自己的案例
-- 调整价格和交付方式
-- 白标销售（改成自己的品牌）
+- [后端开发指南](./docs/BACKEND_DEV.md)
+- [前端开发指南](./docs/FRONTEND_DEV.md)
+- [API文档](./docs/API.md)
+- [数据库设计](./docs/DATABASE.md)
+- [部署指南](./DEPLOYMENT.md)
+- [架构设计](./ARCHITECTURE.md)
 
 ---
 
-**建议先从这个方向快速落地，然后根据客户反馈不断优化。**
+## 📦 集成的开源项目
 
-您现在要做的就是：
-1. 准备 5 个真实客户案例（即使是自己做过的）
-2. 录制 5 节简单的视频课程
-3. 整理 100+ 自媒体脚本模板
-4. 写一份详细的配置手册
-5. 准备售后支持流程
+- [MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) - 短视频生成引擎
+- [ViralMint](https://github.com/openclaw-easy/ViralMint) - 爆款分析系统
+- [FFmpeg](https://github.com/FFmpeg/FFmpeg) - 视频处理
+- [Whisper](https://github.com/openai/whisper) - 字幕生成
+- [Stable Diffusion](https://github.com/CompVis/stable-diffusion) - 图片生成
 
-我现在就开始为您写这些文档。
+---
+
+## 💼 商业部署
+
+### 私有化部署
+- 完整代码交付
+- 专业部署支持
+- 长期技术支持
+- 源代码访问
+
+### SaaS 托管
+- 云端部署运营
+- 自动备份升级
+- 7x24 技术支持
+- 99.9% 可用性保证
+
+### 混合部署
+- 灵活部署选择
+- 数据隐私保护
+- 成本优化
+
+---
+
+## 📄 许可证
+
+MIT License - 适合商用部署和二次开发
+
+---
+
+## 🤝 支持与合作
+
+- 企业级部署咨询
+- 定制功能开发
+- 行业解决方案
+- 技术培训服务
+
+---
+
+**西瓜AI - 让普通人也能做爆款短视频**
