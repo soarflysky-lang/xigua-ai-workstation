@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>西瓜AI工作台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div class="brand">🍉 西瓜AI</div>
+        <div class="badge">抖音爆款视频工作台</div>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <h1>生成爆款短视频脚本</h1>
+          <form id="taskForm">
+            <label>
+              主题
+              <input type="text" id="topic" placeholder="例如：商家做直播如何提单" required />
+            </label>
+
+            <label>
+              目标用户
+              <input type="text" id="audience" value="商家老板/普通用户" />
+            </label>
+
+            <label>
+              视频风格
+              <select id="style">
+                <option>口播式爆款</option>
+                <option>知识拆解型</option>
+                <option>实战案例型</option>
+                <option>故事型</option>
+              </select>
+            </label>
+
+            <label>
+              视频时长（秒）
+              <input type="number" id="duration" value="45" min="15" max="180" />
+            </label>
+
+            <button type="submit">生成任务</button>
+          </form>
+        </section>
+
+        <section class="panel result-panel">
+          <h2>任务结果</h2>
+          <div id="status" class="status-box">等待生成...</div>
+          <div id="result" class="result-box">
+            <h3>标题</h3>
+            <p>用 AI 给您的主题生成爆款标题与脚本结构</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
